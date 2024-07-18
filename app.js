@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
+const { requireAuth } = require('./middleware/authMiddleware');
 
 const app = express();
 require('dotenv').config();
@@ -25,24 +26,13 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('/recipes', (req, res) => {
+app.get('/recipes', requireAuth, (req, res) => {
     res.render('recipes');
 });
 
 
 
-
-
 app.use(authRoutes);
-
-
-
-
-
-
-
-
-
 
 
 
