@@ -29,6 +29,10 @@ app.get('/recipes', (req, res) => {
     res.render('recipes');
 });
 
+
+
+
+
 app.use(authRoutes);
 
 

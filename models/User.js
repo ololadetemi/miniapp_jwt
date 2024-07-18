@@ -29,7 +29,22 @@ userSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, salt)
     console.log('user about to be created', this)
     next();
-})
+});
+
+//a static method to login users
+userSchema.statics.login = async function(email, password) {
+    const user = await this.findOne({ email });
+    if (user) {
+        //compares hashed password with og password
+        const auth = await bcrypt.compare(password, user.password);
+        if (auth) {
+            return user;
+        }
+        throw Error('incorrect password');
+    }
+    throw Error('incorrect email')
+}
+
 
 const User = mongoose.model('user', userSchema);
 
