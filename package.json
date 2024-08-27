@@ -1,7 +1,6 @@
 {
   "name": "jwt_authentication",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "dependencies": {
     "abbrev": "^1.1.1",
@@ -15,6 +14,7 @@
     "async": "^3.2.5",
     "balanced-match": "^1.0.2",
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "brace-expansion": "^1.1.11",
     "bson": "^6.8.0",
@@ -159,5 +159,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ololade",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
